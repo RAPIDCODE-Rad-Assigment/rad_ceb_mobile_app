@@ -63,8 +63,8 @@ class _SplashScreenState extends State<SplashScreen>
       backgroundColor: const Color(0xFF62270A), // Dark Brown Background
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(height: 300),
             // Animated CEB letters
             FadeTransition(
               opacity: _fadeAnimation,
