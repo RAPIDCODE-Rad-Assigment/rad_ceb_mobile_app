@@ -31,106 +31,108 @@ class _SignUpPageState extends State<SignUpPage> {
         156,
         43,
       ), // Updated Background
-      body: Center(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Sign Up",
-                style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF62270A),
-                ),
-              ),
-              const SizedBox(height: 20),
-
-              Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    _buildInputField(
-                      "Account Number",
-                      Icons.account_balance,
-                      _accountController,
-                      TextInputType.number,
-                    ),
-                    _buildInputField(
-                      "Mobile Number",
-                      Icons.phone,
-                      _mobileController,
-                      TextInputType.phone,
-                    ),
-                    _buildInputField(
-                      "Email",
-                      Icons.email,
-                      _emailController,
-                      TextInputType.emailAddress,
-                    ),
-                    _buildPasswordField(
-                      "Password",
-                      Icons.lock,
-                      _passwordController,
-                      true,
-                    ),
-                    _buildPasswordField(
-                      "Confirm Password",
-                      Icons.lock_outline,
-                      _confirmPasswordController,
-                      false,
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 30),
-
-              // Sign Up Button (Updated Style)
-              ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text("Sign Up Successful!")),
-                    );
-                  }
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFAE7B21), // Golden Brown
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 50,
-                    vertical: 15,
-                  ),
-                ),
-                child: const Text(
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 24.0, right: 24.0, top: 150.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
                   "Sign Up",
                   style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
+                    fontSize: 32,
                     fontWeight: FontWeight.bold,
+                    color: Color(0xFF62270A),
                   ),
                 ),
-              ),
+                const SizedBox(height: 20),
 
-              const SizedBox(height: 20),
-
-              // Already have an account?
-              TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LoginPage()),
-                  );
-                },
-                child: const Text(
-                  "Already have an account? Login",
-                  style: TextStyle(color: Color(0xFF62270A), fontSize: 16),
+                Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      _buildInputField(
+                        "Account Number",
+                        Icons.account_balance,
+                        _accountController,
+                        TextInputType.number,
+                      ),
+                      _buildInputField(
+                        "Mobile Number",
+                        Icons.phone,
+                        _mobileController,
+                        TextInputType.phone,
+                      ),
+                      _buildInputField(
+                        "Email",
+                        Icons.email,
+                        _emailController,
+                        TextInputType.emailAddress,
+                      ),
+                      _buildPasswordField(
+                        "Password",
+                        Icons.lock,
+                        _passwordController,
+                        true,
+                      ),
+                      _buildPasswordField(
+                        "Confirm Password",
+                        Icons.lock_outline,
+                        _confirmPasswordController,
+                        false,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+                const SizedBox(height: 30),
+
+                // Sign Up Button (Updated Style)
+                ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("Sign Up Successful!")),
+                      );
+                    }
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFFAE7B21), // Golden Brown
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 50,
+                      vertical: 15,
+                    ),
+                  ),
+                  child: const Text(
+                    "Sign Up",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 20),
+
+                // Already have an account?
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginPage()),
+                    );
+                  },
+                  child: const Text(
+                    "Already have an account? Login",
+                    style: TextStyle(color: Color(0xFF62270A), fontSize: 16),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

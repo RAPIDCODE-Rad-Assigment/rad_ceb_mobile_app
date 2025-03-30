@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rad_ceb_mobile_app/homepage/homepage.dart';
-import 'package:rad_ceb_mobile_app/login/Login.dart';
-import 'package:rad_ceb_mobile_app/sign-up/SignUp.dart';
 import 'package:rad_ceb_mobile_app/splash-screen/SplashScreen.dart';
 
 void main() {
@@ -15,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
