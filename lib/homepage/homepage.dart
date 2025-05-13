@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rad_ceb_mobile_app/homepage/event_timeline.dart';
-import 'package:rad_ceb_mobile_app/login/Login.dart';
+import 'package:rad_ceb_mobile_app/homepage/EventTimeline.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -15,23 +14,28 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 171, 156, 43),
+      backgroundColor: Color.fromARGB(255, 254, 233, 153),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.all(30.0),
+              padding: const EdgeInsets.only(
+                left: 30.0,
+                bottom: 20.0,
+                right: 30.0,
+                top: 30.0,
+              ),
               child: Container(
                 width: double.infinity,
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                 decoration: BoxDecoration(
                   color: Color(
-                    0xFFAE7B21,
+                    0xFFC58B2B,
                   ), // Background color of the curved box
                   borderRadius: BorderRadius.vertical(
-                    top: Radius.circular(40),
-                    bottom: Radius.circular(40),
+                    top: Radius.circular(20),
+                    bottom: Radius.circular(20),
                   ), // Curved top edges
                   border: Border.all(
                     // Add black border
@@ -96,8 +100,114 @@ class _HomepageState extends State<Homepage> {
                 ),
               ),
             ),
-            SizedBox(height: 20),
-            // TimelineScreen(),
+            Padding(
+              padding: EdgeInsets.only(left: 20.0, right: 20.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Color(0xFFC58B2B),
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(15),
+                            bottom: Radius.circular(15),
+                          ),
+                          border: Border.all(
+                            color: const Color.fromARGB(255, 255, 236, 93),
+                            width: 2,
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black26,
+                              blurRadius: 10,
+                              offset: Offset(0, 5),
+                            ),
+                          ],
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 20),
+                          child: Center(
+                            child: Column(
+                              children: [
+                                Icon(
+                                  Icons.receipt,
+                                  size: 50,
+                                  color: Color(0xFF62270A),
+                                ),
+                                Text(
+                                  "My Bills",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Color(0xFFC58B2B),
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(15),
+                            bottom: Radius.circular(15),
+                          ),
+                          border: Border.all(
+                            color: const Color.fromARGB(255, 255, 236, 93),
+                            width: 2,
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black26,
+                              blurRadius: 10,
+                              offset: Offset(0, 5),
+                            ),
+                          ],
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 20),
+                          child: Column(
+                            children: [
+                              Icon(
+                                Icons.payment,
+                                size: 50,
+                                color: Color(0xFF62270A),
+                              ),
+                              Text(
+                                "My Payments",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 20.0),
+            Text(
+              "Event Timeline",
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF62270A),
+                letterSpacing: 1.2,
+              ),
+            ),
+            TimelineScreen(),
           ],
         ),
       ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rad_ceb_mobile_app/homepage/homepage.dart';
+import 'package:rad_ceb_mobile_app/homepage/Homepage.dart';
 import 'package:rad_ceb_mobile_app/layout/Layout.dart';
 import 'package:rad_ceb_mobile_app/sign-up/SignUp.dart';
 

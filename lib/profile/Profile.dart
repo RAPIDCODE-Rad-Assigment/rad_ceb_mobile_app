@@ -11,7 +11,7 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 171, 156, 43),
+      backgroundColor: Color.fromARGB(255, 254, 233, 153),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -36,14 +36,14 @@ class _ProfileState extends State<Profile> {
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: Color(0xFF62270A),
               ),
             ),
             SizedBox(height: 5),
             // Email
             Text(
               "malindu@codevus.com",
-              style: TextStyle(fontSize: 16, color: Colors.white70),
+              style: TextStyle(fontSize: 16, color: Color(0xFF62270A)),
             ),
             SizedBox(height: 20),
             // Profile Details Card
