@@ -26,7 +26,7 @@ class _InterruptionsState extends State<Interruptions> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 171, 156, 43),
+      backgroundColor: Color.fromARGB(255, 254, 233, 153),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView.builder(

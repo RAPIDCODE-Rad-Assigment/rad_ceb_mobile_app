@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rad_ceb_mobile_app/complaints/Complaints.dart';
-import 'package:rad_ceb_mobile_app/homepage/homepage.dart';
+import 'package:rad_ceb_mobile_app/homepage/Homepage.dart';
 import 'package:rad_ceb_mobile_app/interruption/Interruptions.dart';
 import 'package:rad_ceb_mobile_app/profile/Profile.dart';
 
@@ -33,7 +33,7 @@ class _LayoutState extends State<Layout> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFAE7B21),
+        backgroundColor: Color(0xFFC58B2B),
         automaticallyImplyLeading: false,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -114,7 +114,7 @@ class _LayoutState extends State<Layout> {
       ),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Color(0xFFAE7B21), // Your theme color
+        backgroundColor: Color(0xFFC58B2B), // Your theme color
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white60,
         type:
