@@ -1,8 +1,13 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rad_ceb_mobile_app/homepage/Homepage.dart';
-import 'package:rad_ceb_mobile_app/layout/Layout.dart';
-import 'package:rad_ceb_mobile_app/sign-up/SignUp.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import '../../api-services/user-service.dart';
+import '../../utils/auth_guard.dart';
+import '../../utils/user-provier-service.dart';
+import '../layout/Layout.dart';
+import '../sign-up/SignUp.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -15,6 +20,41 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  Future<Map<String, dynamic>> _login() async {
+    String email = emailController.text.trim();
+    String password = passwordController.text.trim();
+
+    final response = await UserService.login({
+      "email": email,
+      "password": password,
+    });
+
+    print(response);
+
+    if (response.statusCode == 200) {
+      Map<String, dynamic> body = jsonDecode(response.body);
+
+      return {
+        "status": true,
+        "token": body['token'],
+        "message": body['message'],
+      };
+    } else if (response.statusCode == 401) {
+      Map<String, dynamic> body = jsonDecode(response.body);
+
+      Fluttertoast.showToast(
+        msg: body['error'],
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.TOP,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0,
+      );
+      return {"status": false, "err": body['error']};
+    }
+    return {"status": false};
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -94,14 +134,56 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   SizedBox(height: 25),
                   ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Layout()),
-                      );
-                      // if (_formKey.currentState!.validate()) {
-                      // Perform login logic
-                      // }
+                    onPressed: () async {
+                      if (_formKey.currentState!.validate()) {
+                        // // Navigator.push(
+                        // //   context,
+                        // //   MaterialPageRoute(builder: (context) => Layout()),
+                        // // );
+
+                        // Map<String, dynamic> result = await _login();
+
+                        // // context.read<UserProviderService>().setId(
+                        // //   id: result['id'],
+                        // // );
+
+                        // if (result['status'] == true) {
+                        //   context.read<UserProviderService>().setToken(
+                        //     token: result['access_token'],
+                        //   );
+                        //   // TokenService.setToken(body['token']);
+
+                        //   // context.read<UserProviderService>().setUsername(
+                        //   //   username: body['username'],
+                        //   // );
+                        //   // context.read<UserProviderService>().setFirstname(
+                        //   //   firstname:
+                        //   //       body['Name'].toString().split(' ').last,
+                        //   // );
+                        //   // context.read<AuthService>().setLastname(lastname: body['lastName']);
+
+                        //   Fluttertoast.showToast(
+                        //     msg: "Successfully LoggedIn",
+                        //     toastLength: Toast.LENGTH_SHORT,
+                        //     gravity: ToastGravity.TOP,
+                        //     timeInSecForIosWeb: 1,
+                        //     backgroundColor: const Color(0xFF0ED178),
+                        //     textColor: Colors.white,
+                        //     fontSize: 16.0,
+                        //   );
+                        //   if (!mounted) return;
+
+                        //   CustomNavigator.navigateIfAuthenticated(
+                        //     context: context,
+                        //     destination: Layout(),
+                        //   );
+                        // } else {}
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Layout()),
+                        );
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFFAE7B21),
