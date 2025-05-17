@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:async';
 
-import 'package:rad_ceb_mobile_app/login/Login.dart';
+import '../../utils/shared-preferences.dart';
+import '../layout/Layout.dart';
+import '../login/Login.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -16,6 +18,7 @@ class _SplashScreenState extends State<SplashScreen>
   late AnimationController _controller;
   late Animation<double> _fadeAnimation;
   late Animation<Offset> _slideAnimation;
+  bool? isLoggedIn = false;
 
   @override
   void initState() {
@@ -41,13 +44,31 @@ class _SplashScreenState extends State<SplashScreen>
 
     // Start animation
     _controller.forward();
+    _loadInitialData();
 
-    // Navigate to the next screen after 3 seconds
-    Timer(const Duration(seconds: 4), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const LoginPage()),
-      );
+    if (!isLoggedIn!) {
+      // Navigate to the next screen after 3 seconds
+      Timer(const Duration(seconds: 4), () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const LoginPage()),
+        );
+      });
+    } else {
+      Timer(const Duration(seconds: 4), () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const Layout()),
+        );
+      });
+    }
+  }
+
+  void _loadInitialData() async {
+    bool? loggedInValue = await SharedPreferencesService.getLoginStatus();
+
+    setState(() {
+      isLoggedIn = loggedInValue ?? false;
     });
   }
 

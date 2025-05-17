@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rad_ceb_mobile_app/login/Login.dart';
+
+import '../login/Login.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});

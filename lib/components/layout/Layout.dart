@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:rad_ceb_mobile_app/complaints/Complaints.dart';
-import 'package:rad_ceb_mobile_app/homepage/Homepage.dart';
-import 'package:rad_ceb_mobile_app/interruption/Interruptions.dart';
-import 'package:rad_ceb_mobile_app/profile/Profile.dart';
+
+import '../complaints/Complaints.dart';
+import '../homepage/Homepage.dart';
+import '../interruption/Interruptions.dart';
+import '../profile/Profile.dart';
 
 class Layout extends StatefulWidget {
   const Layout({super.key});
