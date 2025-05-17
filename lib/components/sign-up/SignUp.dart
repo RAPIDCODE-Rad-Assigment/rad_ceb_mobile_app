@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rad_ceb_mobile_app/login/Login.dart';
+
+import '../login/Login.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
